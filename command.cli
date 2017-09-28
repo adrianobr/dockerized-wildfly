@@ -42,7 +42,7 @@ data-source add \
     --allocation-retry=0 \
     --allocation-retry-wait-millis=0 \
     --track-statements=true \
-    --share-prepared-statements=false \
+    --share-prepared-statements=false
 
 data-source add \
     --name=Notificacao \
@@ -78,6 +78,6 @@ data-source add \
     --allocation-retry=0 \
     --allocation-retry-wait-millis=0 \
     --track-statements=true \
-    --share-prepared-statements=false \
+    --share-prepared-statements=false
 
 run-batch
