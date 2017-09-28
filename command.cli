@@ -21,14 +21,14 @@ data-source add \
     --jta=true \
     --use-ccm=true \
     --min-pool-size=1 \
-    --initial-pool-size= 5 \
+    --initial-pool-size=5 \
     --max-pool-size=100 \
     --pool-prefill=false \
     --flush-strategy="IdleConnections" \
     --pool-use-strict-min=true \
     --use-fast-fail=false \
     --capacity-decrementer-class="org.jboss.jca.core.connectionmanager.pool.capacity.SizeDecrementer" \
-    --capacity-decrementer-properties='size=25' \
+    --capacity-decrementer-properties="size=25" \
     --allow-multiple-users=false \
     --valid-connection-checker-class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker" \
     --check-valid-connection-sql="select 1" \
@@ -57,14 +57,14 @@ data-source add \
     --jta=true \
     --use-ccm=true \
     --min-pool-size=1 \
-    --initial-pool-size= 5 \
+    --initial-pool-size=5 \
     --max-pool-size=100 \
     --pool-prefill=false \
     --flush-strategy="IdleConnections" \
     --pool-use-strict-min=true \
     --use-fast-fail=false \
     --capacity-decrementer-class="org.jboss.jca.core.connectionmanager.pool.capacity.SizeDecrementer" \
-    --capacity-decrementer-properties='size=25' \
+    --capacity-decrementer-properties="size=25" \
     --allow-multiple-users=false \
     --valid-connection-checker-class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker" \
     --check-valid-connection-sql="select 1" \
