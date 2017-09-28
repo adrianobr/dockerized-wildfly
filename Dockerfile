@@ -12,7 +12,10 @@ WORKDIR /opt/jboss/wildfly
 RUN yum install -y wget && yum -q clean all
 
 # Criar pastas
-RUN mkdir -p /opt/jboss/wildfly/modules/system/layers/base/org/postgres/main && mkdir -p /opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/main && mkdir -p /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/main && mkdir -p /opt/jboss/wildfly/standalone/configuration/certs
+CMD mkdir -p /opt/jboss/wildfly/modules/system/layers/base/org/postgres/main
+CMD mkdir -p /opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/main
+CMD mkdir -p /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/main
+CMD mkdir -p /opt/jboss/wildfly/standalone/configuration/certs
 
 # Criar grupo e usuario
 RUN sh /opt/jboss/wildfly/bin/add-user.sh -u 'sysmo' -p '$y$m036310600' -g 'sysmo' -s
