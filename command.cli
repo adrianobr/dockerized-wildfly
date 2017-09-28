@@ -50,7 +50,7 @@ data-source add \
     --enabled=false \
     --statistics-enabled=false \
     --driver-name="postgresql" \
-    --connection-url="jdbc:postgresql://172.30.0.244:5432/db_notificacao?ApplicationName=Notificacao" \
+    --connection-url="jdbc:postgresql://172.30.0.244:5433/db_notificacao?ApplicationName=Notificacao" \
     --transaction-isolation="TRANSACTION_READ_COMMITTED" \
     --user-name="sysdba" \
     --password="$y$m036310600" \
