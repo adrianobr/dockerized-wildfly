@@ -32,7 +32,7 @@ ADD execute.sh /tmp/
 ADD command.cli /tmp/
 
 # Rodar
-RUN ["chmod", "+x", "/tmp/execute.sh”]
+RUN ["chmod", "+x", "/tmp/execute.sh"]
 RUN /tmp/execute.sh
 
 # Expose default port
