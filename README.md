@@ -1,2 +1,2 @@
 # dockerized-wildfly
-Wildfly customization Docker
+Build Dockerfile:  sudo docker build -t name/name .
