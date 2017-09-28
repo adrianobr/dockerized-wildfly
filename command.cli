@@ -34,7 +34,7 @@ data-source add \
     --check-valid-connection-sql="select 1" \
     --validate-on-match=false \
     --background-validation=true \
-	  --background-validation-millis=120000 \
+    --background-validation-millis=120000 \
     --use-try-lock=0 \
     --blocking-timeout-wait-millis=0 \
     --idle-timeout-minutes=1 \
@@ -70,7 +70,7 @@ data-source add \
     --check-valid-connection-sql="select 1" \
     --validate-on-match=false \
     --background-validation=true \
-	  --background-validation-millis=120000 \
+    --background-validation-millis=120000 \
     --use-try-lock=0 \
     --blocking-timeout-wait-millis=0 \
     --idle-timeout-minutes=1 \
