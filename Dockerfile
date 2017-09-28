@@ -8,14 +8,6 @@ USER root
 # Diretorio de trabalho
 WORKDIR /opt/jboss/wildfly
 
-# Variaveis
-ENV POSTGRES_JDBC='postgresql-9.4.1212.jre7.jar'
-ENV SQLSERVER_JDBC='sqljdbc.jar'
-ENV ORACLE_JDBC='ojdbc7.jar'
-ENV FTP_URI='ftp://177.75.144.2'
-ENV FTP_USER='equipeweb'
-ENV FTP_PASS='36310600$'
-
 # Instalar wget e limpar metadados
 RUN yum install -y wget && yum -q clean all
 
@@ -25,10 +17,15 @@ RUN mkdir -p /opt/jboss/wildfly/modules/system/layers/base/org/postgres/main && 
 # Criar grupo e usuario
 RUN sh /opt/jboss/wildfly/bin/add-user.sh -u 'sysmo' -p '$y$m036310600' -g 'sysmo' -s
 
-# Baixar drivers JDBC
-CMD cd /opt/jboss/wildfly/modules/system/layers/base/org/postgres/main && wget –tries=0 $FTP_URI/aws/drivers/postgres/module.xml --ftp-user=$FTP_USER --ftp-password=$FTP_PASS && wget –tries=0 $FTP_URI/aws/drivers/postgres/$POSTGRES_JDBC --ftp-user=$FTP_USER --ftp-password=$FTP_PASS
-CMD cd /opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/main && wget –tries=0 $FTP_URI/aws/drivers/microsoft/module.xml --ftp-user=$FTP_USER --ftp-password=$FTP_PASS && wget –tries=0 $FTP_URI/aws/drivers/microsoft/$SQLSERVER_JDBC --ftp-user=$FTP_USER --ftp-password=$FTP_PASS
-CMD cd /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7 && wget –tries=0 $FTP_URI/aws/drivers/oracle/module.xml --ftp-user=$FTP_USER --ftp-password=$FTP_PASS && wget –tries=0 $FTP_URI/aws/drivers/oracle/$ORACLE_JDBC --ftp-user=$FTP_USER --ftp-password=$FTP_PASS
+# Transferir para o Wildfly os drivers locais
+ADD drivers/postgres/module.xml /opt/jboss/wildfly/modules/system/layers/base/org/postgres/main
+ADD drivers/postgres/postgresql-9.4.1212.jre7.jar /opt/jboss/wildfly/modules/system/layers/base/org/postgres/main
+
+ADD drivers/microsoft/module.xml /opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/main
+ADD drivers/microsoft/sqljdbc.jar /opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/main
+
+ADD drivers/oracle/module.xml /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7
+ADD drivers/oracle/ojdbc7.jar /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7
 
 # Transferir arquivos de configuracao
 ADD execute.sh /tmp/
