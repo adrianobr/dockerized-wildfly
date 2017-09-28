@@ -6,7 +6,7 @@ JBOSS_MODE=${1:-"standalone"}
 JBOSS_CONFIG=${2:-"$JBOSS_MODE.xml"}
 
 function wait_for_wildfly() {
-  until `$JBOSS_CLI -c "ls /deployment" &> /dev/null`; do
+  until '$JBOSS_CLI -c "ls /deployment" &> /dev/null'; do
     sleep 1
   done
 }
@@ -18,7 +18,7 @@ echo "==> Waiting..."
 wait_for_wildfly
 
 echo "==> Executing..."
-$JBOSS_CLI -c --file=`dirname "$0"`/command.cli
+$JBOSS_CLI -c --file='dirname "$0"'/command.cli
 
 echo "==> Shutting down WildFly..."
 if [ "$JBOSS_MODE" = "standalone" ]; then
