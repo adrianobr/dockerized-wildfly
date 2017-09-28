@@ -8,4 +8,40 @@ module add --name=com.oracle.ojdbc7 --resources=/opt/jboss/wildfly/modules/syste
 /subsystem=datasources/jdbc-driver=sqlserver:add(driver-name="sqlserver",driver-module-name="com.microsoft.sqlserver",driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver)
 /subsystem=datasources/jdbc-driver=oracle:add(driver-name="oracle",driver-module-name="com.oracle.ojdbc7",driver-class-name=oracle.jdbc.OracleDriver)
 
+data-source add \
+    --name=Administrador \
+    --jndi-name=java:/sysmo-admin \
+    --enabled=false \
+    --statistics-enabled=false \
+    --driver-name=postgresql \
+    --connection-url=jdbc:postgresql://172.30.0.244:5432/db_administrador?ApplicationName=Administrador \
+    --transaction-isolation="TRANSACTION_READ_COMMITTED" \
+    --user-name=sysdba \
+    --password=$y$m036310600 \
+    --jta=true \
+    --use-ccm=true \
+    --min-pool-size=1 \
+    --initial-pool-size= 5 \
+    --max-pool-size=100 \
+    --pool-prefill=false \
+    --flush-strategy="IdleConnections" \
+    --pool-use-strict-min=true \
+    --use-fast-fail=false \
+    --capacity-decrementer-class="org.jboss.jca.core.connectionmanager.pool.capacity.SizeDecrementer" \
+    --capacity-decrementer-properties='size=25' \
+    --allow-multiple-users=false \
+    --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker \
+    --check-valid-connection-sql="select 1" \
+    --validate-on-match=false \
+    --background-validation=true \
+    --background-validation-millis=120000 \
+    --use-try-lock=0 \
+    --blocking-timeout-wait-millis=0 \
+    --idle-timeout-minutes=1 \
+    --set-tx-query-timeout=fase \
+    --allocation-retry=0 \
+    --allocation-retry-wait-millis=0 \
+    --track-statements=true \
+    --share-prepared-statements=false
+
 run-batch
