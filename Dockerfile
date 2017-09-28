@@ -15,7 +15,7 @@ RUN yum install -y wget && yum -q clean all
 CMD mkdir -p /opt/jboss/wildfly/modules/system/layers/base/org/postgres/main/
 CMD mkdir -p /opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/main/
 CMD mkdir -p /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/main/
-CMD mkdir -p /opt/jboss/wildfly/server-certs/
+CMD mkdir -p /opt/jboss/wildfly/certificado/
 
 # Criar grupo e usuario
 RUN sh /opt/jboss/wildfly/bin/add-user.sh -u 'sysmo' -p '$y$m036310600' -g 'sysmo' -s
@@ -30,7 +30,7 @@ ADD drivers/microsoft/sqljdbc.jar /opt/jboss/wildfly/modules/system/layers/base/
 ADD drivers/oracle/module.xml /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/
 ADD drivers/oracle/ojdbc7.jar /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/
 
-ADD /etc/ssl/server-certs/sysmo.com.br.jks /opt/jboss/wildfly/server-certs/
+ADD certificado/sysmo.com.br.jks /opt/jboss/wildfly/certificado/
 
 # Transferir arquivos de configuracao
 ADD execute.sh /tmp/
