@@ -18,7 +18,7 @@ function wait_for_wildfly() {
 #grep -q -F 'JAVA_OPTS="$JAVA_OPTS -Duser.timezone=UTC+02:00"' $JBOSS_OPTS || echo "$PATCH_STR\n" >> $JBOSS_OPTS
 
 echo "==> Starting WildFly..."
-$JBOSS_HOME/bin/$JBOSS_MODE.sh -c --server-config=standalone-full.xml > /dev/null &
+$JBOSS_HOME/bin/$JBOSS_MODE.sh -c $JBOSS_CONFIG > /dev/null &
 
 echo "==> Waiting..."
 wait_for_wildfly
@@ -32,3 +32,6 @@ if [ "$JBOSS_MODE" = "standalone" ]; then
 else
   $JBOSS_CLI -c "/host=*:shutdown"
 fi
+
+echo "=> Restarting WildFly"
+$JBOSS_HOME/bin/$JBOSS_MODE.sh -b 0.0.0.0 -c $JBOSS_CONFIG
