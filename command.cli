@@ -4,9 +4,9 @@ module add --name=org.postgres --resources=/opt/jboss/wildfly/modules/system/lay
 module add --name=com.microsoft.sqlserver --resources=/opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/main/sqljdbc.jar --dependencies=javax.api,javax.transaction.api
 module add --name=com.oracle.ojdbc7 --resources=/opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/ojdbc7.jar --dependencies=javax.api,javax.transaction.api
 
-/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name="org.postgresql.Driver")
-/subsystem=datasources/jdbc-driver=sqlserver:add(driver-name="sqlserver",driver-module-name="com.microsoft.sqlserver",driver-class-name="com.microsoft.sqlserver.jdbc.SQLServerDriver")
-/subsystem=datasources/jdbc-driver=oracle:add(driver-name="oracle",driver-module-name="com.oracle",driver-class-name="oracle.jdbc.driver.OracleDriver",xa-datasource-class="oracle.jdbc.xa.client.OracleXADataSource")
+/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver)
+/subsystem=datasources/jdbc-driver=sqlserver:add(driver-name="sqlserver",driver-module-name="com.microsoft.sqlserver",driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver)
+/subsystem=datasources/jdbc-driver=oracle:add(driver-name="oracle",driver-module-name="com.oracle",driver-class-name=oracle.jdbc.OracleDriver,xa-datasource-class=oracle.jdbc.xa.client.OracleXADataSource)
 
 data-source add \
     --name=Administrador \
