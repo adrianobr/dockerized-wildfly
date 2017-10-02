@@ -30,7 +30,7 @@ ADD drivers/microsoft/sqljdbc.jar /opt/jboss/wildfly/modules/system/layers/base/
 ADD drivers/oracle/module.xml /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/
 ADD drivers/oracle/ojdbc7.jar /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/
 
-ADD certificado/sysmo.com.br.jks /opt/jboss/wildfly/certificado/
+ADD /dockerized-wildfly/certificado/sysmo.com.br.jks /opt/jboss/wildfly/certificado/
 
 # Transferir arquivos de configuracao
 ADD execute.sh /tmp/
@@ -38,6 +38,7 @@ ADD command.cli /tmp/
 
 # Rodar
 RUN ["chmod", "+x", "/tmp/execute.sh"]
+RUN ["chmod", "+x", "/opt/jboss/wildfly/certificado/sysmo.com.br.jks"]
 RUN /tmp/execute.sh
 
 # Expose default port
