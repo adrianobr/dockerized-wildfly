@@ -82,4 +82,10 @@ data-source add \
     --track-statements=true \
     --share-prepared-statements=false
 
+/system-property=com.arjuna.ats.arjuna.allowMultipleLastResources:add(value=true)
+/system-property=com.arjuna.ats.arjuna.disableMultipleLastResourcesWarning:add(value=true)
+/subsystem=undertow/configuration=filter/gzip=gzipFilter:add()
+/subsystem=undertow/server=default-server/host=default-host/\
+   filter-ref=gzipFilter:add(predicate="regex[pattern='(?:application/javascript|application/json|image/png|image/gif|text/css|text/html|text/plain|application/octet-stream)(;.*)?', value=%{o,Content-Type}, full-match=true]")
+   
 run-batch
