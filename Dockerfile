@@ -43,4 +43,4 @@ RUN ["chmod", "+x", "/opt/jboss/wildfly/certificado/sysmo.com.br.jks"]
 RUN /tmp/execute.sh
 
 # Expose default port
-EXPOSE 8080 9990 9993 443
+EXPOSE 8080 8443 9990 9993
