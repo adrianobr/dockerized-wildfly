@@ -6,7 +6,7 @@ module add --name=com.oracle.ojdbc7 --resources=/opt/jboss/wildfly/modules/syste
 
 /subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver)
 /subsystem=datasources/jdbc-driver=sqlserver:add(driver-name="sqlserver",driver-module-name="com.microsoft.sqlserver",driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver)
-/subsystem=datasources/jdbc-driver=oracle:add(driver-name="oracle",driver-module-name="com.oracle",driver-class-name=oracle.jdbc.OracleDriver,xa-datasource-class=oracle.jdbc.xa.client.OracleXADataSource)
+/subsystem=datasources/jdbc-driver=oracle:add(driver-name="oracle",driver-module-name="com.oracle.ojdbc7",driver-class-name=oracle.jdbc.OracleDriver,xa-datasource-class=oracle.jdbc.xa.client.OracleXADataSource)
 
 data-source add \
     --name=Administrador \
