@@ -19,7 +19,7 @@ CMD mkdir -p /opt/jboss/wildfly/certificado/
 CMD mkdir -p /tmp/arquivos/
 
 # Criar grupo e usuario
-RUN sh /opt/jboss/wildfly/bin/add-user.sh -u 'sysmo' -p '$y$m036310600' -g 'sysmo' -s
+RUN sh /opt/jboss/wildfly/bin/add-user.sh -u 'usuario' -p 'senha' -g 'nome_grupo' -s
 
 # Transferir para o Wildfly os drivers locais
 ADD drivers/postgres/module.xml /opt/jboss/wildfly/modules/system/layers/base/org/postgres/main/
