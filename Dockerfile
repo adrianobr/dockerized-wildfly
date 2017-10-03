@@ -31,7 +31,10 @@ ADD drivers/microsoft/sqljdbc.jar /opt/jboss/wildfly/modules/system/layers/base/
 ADD drivers/oracle/module.xml /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/
 ADD drivers/oracle/ojdbc7.jar /opt/jboss/wildfly/modules/system/layers/base/com/oracle/ojdbc7/
 
-ADD 'certificado/sysmo.com.br.jks' /opt/jboss/wildfly/certificado/
+ADD '/etc/ssl/server-certs/sysmo.com.br.jks' /opt/jboss/wildfly/certificado/
+
+ADD '/etc/ssl/server-certs/sysmo.com.br.jks' /etc/ssl/certs/
+ADD '/etc/ssl/server-certs/sysmo.com.br.csr' /etc/ssl/certs/
 
 # Transferir arquivos de configuracao
 ADD execute.sh /tmp/
