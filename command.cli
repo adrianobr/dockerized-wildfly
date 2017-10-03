@@ -89,7 +89,7 @@ data-source add \
 /core-service=management/security-realm=SysmoSSL:add
 /core-service=management/security-realm=SysmoSSL/server-identity=ssl:add(keystore-path="certificado/sysmo.com.br.jks",keystore-relative-to="jboss.home.dir",keystore-password="sysmoweb")
 /subsystem=undertow/server=default-server/https-listener=https:write-attribute(name=security-realm,value=SysmoSSL)
-/subsystem=undertow/server=default-server/https-listener=https:write-attribute(name=enabled-protocols,value="TLSv1,TLSv1.1,TLSv1.2")
+/subsystem=undertow/server=default-server/https-listener=https:write-attribute(name=enabled-protocols,value="TLSv1,TLSv1.1,TLSv1.2,TLSv1.3,SSLv2,SSLv3")
 /subsystem=undertow/server=default-server/https-listener=https:write-attribute(name=enable-http2,value=true)
 
 # variaveis de aplicacao
